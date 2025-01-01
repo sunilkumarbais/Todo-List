@@ -1,0 +1,111 @@
+
+body{
+  font-family: Arial;
+  background: #b7b4b4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+h1 {
+  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+  linear-gradient(127deg, rgba(34, 0, 255, 0.8), rgba(0,255,0,0) 70.71%),
+  linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  background-clip: text;
+  color: transparent;
+}
+
+.todo-grid, .todo-input-grid {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  gap: 30px;;
+}
+
+.todo-input-grid {
+  margin-bottom: 30px;
+}
+
+input{
+  font-size: 15px;
+  padding: 6px;
+  border: none;
+}
+
+
+.addbtn{
+  position: relative;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  background: green;
+}
+.addbtn:active{
+  background: rgb(60, 1, 255) 50%;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+
+}
+
+.addbtn::after, .addbtn::before{
+  content: '';
+  position: absolute;
+  background-image: conic-gradient(from var(--angle), #2ff3e0, yellow);
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 2px;
+  animation: spin 3s linear infinite;
+}
+
+.addbtn::before {
+  filter: blur(0.3rem);
+}
+
+@keyframes spin {
+  from {
+    --angle : 0deg;
+  }
+  to{
+    --angle:360deg;
+  }
+}
+
+.delete-todo-btn{
+  position: relative;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  background: rgb(255, 0, 0);
+}
+
+.delete-todo-btn::after, .delete-todo-btn::before{
+  content: '';
+  position: absolute;
+  background-image: conic-gradient(from var(--angle), #2ff3e0, rgb(8, 0, 255),#A0E7E5);
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 2px;
+  animation: spin 3s linear infinite;
+}
+
+.delete-todo-btn::before {
+  filter: blur(1.5rem);
+  opacity: 0.3;
+}
+
