@@ -20,6 +20,7 @@ h1 {
   display: grid;
   grid-template-columns: 200px 150px 100px;
   gap: 30px;;
+  align-items: center;
 }
 
 .todo-input-grid {
